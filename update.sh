@@ -20,3 +20,4 @@ wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/profiles.tar.g
 tar xvf profiles.tar.gz
 # HAPUS PROFILE FILE
 rm -rf /root/profiles.tar.gz
+# SELESAI
