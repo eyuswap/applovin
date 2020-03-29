@@ -5,24 +5,28 @@ sudo mkdir /var/www/tlnk.io
 sudo mkdir /var/www/appsflyer.com
 sudo mkdir /var/www/tenjin.io
 sudo mkdir /var/www/kochava.com
+sudo mkdir /var/www/appcpi.net
 sudo mkdir /var/www/s2s.adjust.com
 sudo mkdir /var/www/0c3-a.tlnk.io
 sudo mkdir /var/www/impression.appsflyer.com
 sudo mkdir /var/www/track.tenjin.io
 sudo mkdir /var/www/imp.control.kochava.com
 sudo mkdir /var/www/app.adjust.com
+sudo mkdir /var/www/adtrack.appcpi.net
 sudo chown -R $USER:$USER /var/www/applovin.com
 sudo chown -R $USER:$USER /var/www/adjust.com
 sudo chown -R $USER:$USER /var/www/tlnk.io
 sudo chown -R $USER:$USER /var/www/appsflyer.com
 sudo chown -R $USER:$USER /var/www/tenjin.io
 sudo chown -R $USER:$USER /var/www/kochava.com
+sudo chown -R $USER:$USER /var/www/appcpi.net
 sudo chown -R $USER:$USER /var/www/s2s.adjust.com
 sudo chown -R $USER:$USER /var/www/0c3-a.tlnk.io
 sudo chown -R $USER:$USER /var/www/impression.appsflyer.com
 sudo chown -R $USER:$USER /var/www/track.tenjin.io
 sudo chown -R $USER:$USER /var/www/imp.control.kochava.com
 sudo chown -R $USER:$USER /var/www/app.adjust.com
+sudo chown -R $USER:$USER /var/www/adtrack.appcpi.net
 sudo chmod -R 755 /var/www
 cd /etc/apache2/sites-available
 cat > applovin.conf <<EOF
@@ -73,6 +77,14 @@ ServerAlias www.kochava.com
 DocumentRoot /var/www/kochava.com
 </VirtualHost>
 EOF
+cat > appcpi.conf <<EOF
+<VirtualHost *:80>
+ServerAdmin support@appcpi.net
+ServerName appcpi.net
+ServerAlias www.appcpi.net
+DocumentRoot /var/www/appcpi.net
+</VirtualHost>
+EOF
 cat > s2s.adjust.conf <<EOF
 <VirtualHost *:80>
 ServerAdmin support@s2s.adjust.com
@@ -121,6 +133,14 @@ ServerAlias www.app.adjust.com
 DocumentRoot /var/www/app.adjust.com
 </VirtualHost>
 EOF
+cat > adtrack.appcpi.conf <<EOF
+<VirtualHost *:80>
+ServerAdmin support@adtrack.appcpi.net
+ServerName adtrack.appcpi.net
+ServerAlias www.adtrack.appcpi.net
+DocumentRoot /var/www/adtrack.appcpi.net
+</VirtualHost>
+EOF
 cd /root
 sudo a2ensite applovin.conf
 sudo a2ensite adjust.conf
@@ -128,10 +148,12 @@ sudo a2ensite tlnk.conf
 sudo a2ensite appsflyer.conf
 sudo a2ensite tenjin.conf
 sudo a2ensite kochava.conf
+sudo a2ensite appcpi.conf
 sudo a2ensite s2s.adjust.conf
 sudo a2ensite 0c3-a.tlnk.conf
 sudo a2ensite impression.appsflyer.conf
 sudo a2ensite track.tenjin.conf
 sudo a2ensite imp.control.kochava.conf
 sudo a2ensite app.adjust.conf
+sudo a2ensite adtrack.appcpi.conf
 sudo systemctl restart apache2
