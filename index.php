@@ -29,7 +29,7 @@ $UARand = array_rand($userAgent);return $userAgent[$UARand];}
 function Applovin()
 {
 //Applovin SDK
-$ApplovinSDK = file_get_contents('https://eyus.co.id/applovin/applovin_data.json');
+$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
 $input = json_decode($ApplovinSDK);
 $proxy = $input->PROXY_HOSTPORT;
 $proxyauth = $input->PROXY_USERPASS;
