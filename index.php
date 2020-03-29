@@ -56,8 +56,3 @@ return json_encode($x, true);
 }
 $JSONData = json_decode(json_decode(Applovin()));
 echo $JSONData->html;
-$Click = $JSONData->click_tracking_url;
-?>
-<script type="text/javascript">
-window.open('<?php echo $Click; ?>');
-</script>
