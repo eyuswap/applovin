@@ -19,7 +19,6 @@ sudo chown -R $USER:$USER /var/www/app.adjust.com
 sudo chown -R $USER:$USER /var/www/adtrack.appcpi.net
 sudo chmod -R 755 /var/www
 cd /etc/apache2/sites-available
-#Localhost 127.0.0.1
 cat > applovin.conf <<EOF
 <VirtualHost *:80>
 ServerAdmin support@applovin.com
@@ -28,7 +27,6 @@ ServerAlias www.applovin.com
 DocumentRoot /var/www/applovin.com
 </VirtualHost>
 EOF
-#############################################################
 cat > s2s.adjust.conf <<EOF
 <VirtualHost *:80>
 ServerAdmin support@s2s.adjust.com
