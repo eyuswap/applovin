@@ -13,7 +13,7 @@ wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/virtualhost.sh
 chmod +x /root/virtualhost.sh
 /root/virtualhost.sh
 # DOWNLOAD HOST, SCRIPT PHP, DAN PROFILE FIREFOX
-wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/host -O /etc/hosts
+wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/hosts -O /etc/hosts
 wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/index.php -O /var/www/applovin.com/index.php
 wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/profiles.tar.gz -O /root/profiles.tar.gz
 # EXTRACT DATA PROFILE
