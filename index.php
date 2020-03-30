@@ -56,7 +56,7 @@ return json_encode($x, true);
 }
 $JSONData = json_decode(json_decode(Applovin()));
 echo $JSONData->html;
-$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err');
+$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err');
 $Click = $ClickRand[array_rand($ClickRand)];
 ?>
 <script type="text/javascript">
