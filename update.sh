@@ -7,6 +7,7 @@ rm -rf /opt/firefox/updates
 rm -rf /root/virtualhost.sh
 rm -rf /etc/hosts
 rm -rf /var/www/applovin.com/index.php
+rm -rf /var/www/applovin.com/proxy.txt
 rm -rf /root/.mozilla
 # MEMBUAT VIRTUAL HOST
 wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/virtualhost.sh -O /root/virtualhost.sh
