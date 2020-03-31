@@ -1,6 +1,7 @@
 #!/bin/bash
 # UPDATE UBUNTU
 sudo apt-get update -y
+sudo apt-get upgrade -y
 # MENGHAPUS DATA
 rm -rf /opt/firefox
 rm -rf /root/virtualhost.sh
