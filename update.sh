@@ -25,7 +25,7 @@ rm -rf /root/profiles.tar.gz
 # UPDATE CRONTAB
 touch /var/spool/cron/root
 /usr/bin/crontab /var/spool/cron/root
-crontab -l | { cat; echo "@reboot /root/update.sh && sleep $(((RANDOM%4200)+5)) && screen -d -m -S FF1 firefox -headless -p MusafirSenja1 -no-remote && sleep $(((RANDOM%3600)+300)) && /sbin/shutdown -r now"; } | crontab -
+crontab -l | { cat; echo "@reboot /root/update.sh && sleep $(((RANDOM%120)+5)) && screen -d -m -S FF1 firefox -headless -p MusafirSenja1 -no-remote && sleep $(((RANDOM%3600)+300)) && /sbin/shutdown -r now"; } | crontab -
 /etc/init.d/cron restart
 /etc/init.d/cron start
 # SELESAI
