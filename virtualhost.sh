@@ -84,7 +84,7 @@ DocumentRoot /var/www/adtrack.appcpi.net
 </VirtualHost>
 EOF
 cd /root
-sudo a2ensite applovin.conf.conf
+sudo a2ensite applovin.conf
 sudo a2ensite s2s.adjust.conf
 sudo a2ensite 0c3-a.tlnk.conf
 sudo a2ensite impression.appsflyer.conf
