@@ -9,6 +9,7 @@ sudo mkdir /var/www/track.tenjin.io
 sudo mkdir /var/www/imp.control.kochava.com
 sudo mkdir /var/www/app.adjust.com
 sudo mkdir /var/www/adtrack.appcpi.net
+sudo mkdir /var/www/view.adjust.com
 sudo chown -R $USER:$USER /var/www/applovin.com
 sudo chown -R $USER:$USER /var/www/s2s.adjust.com
 sudo chown -R $USER:$USER /var/www/0c3-a.tlnk.io
@@ -17,6 +18,7 @@ sudo chown -R $USER:$USER /var/www/track.tenjin.io
 sudo chown -R $USER:$USER /var/www/imp.control.kochava.com
 sudo chown -R $USER:$USER /var/www/app.adjust.com
 sudo chown -R $USER:$USER /var/www/adtrack.appcpi.net
+sudo chown -R $USER:$USER /var/www/view.adjust.com
 sudo chmod -R 755 /var/www
 cd /etc/apache2/sites-available
 cat > applovin.conf <<EOF
@@ -83,6 +85,14 @@ ServerAlias www.adtrack.appcpi.net
 DocumentRoot /var/www/adtrack.appcpi.net
 </VirtualHost>
 EOF
+cat > view.adjust.com.conf <<EOF
+<VirtualHost *:80>
+ServerAdmin support@adtrack.appcpi.net
+ServerName adtrack.appcpi.net
+ServerAlias www.adtrack.appcpi.net
+DocumentRoot /var/www/adtrack.appcpi.net
+</VirtualHost>
+EOF
 cd /root
 sudo a2ensite applovin.conf
 sudo a2ensite s2s.adjust.conf
@@ -92,4 +102,5 @@ sudo a2ensite track.tenjin.conf
 sudo a2ensite imp.control.kochava.conf
 sudo a2ensite app.adjust.conf
 sudo a2ensite adtrack.appcpi.conf
+sudo a2ensite view.adjust.com.conf
 sudo systemctl restart apache2
