@@ -31,8 +31,13 @@ function ApplovinJSON()
 //Applovin SDK
 $ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
 $input = json_decode($ApplovinSDK);
-$proxy = $input->PROXY_HOSTPORT;
-$proxyauth = $input->PROXY_USERPASS;
+// Proxy Config
+$Luminati = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json');
+$arr = json_decode($Luminati, true);
+$RandServer = $arr[rand(0,count($arr)-1)];
+$RandProxy = json_decode(json_encode($RandServer));
+$proxy = $RandProxy->PROXY_HOSTPORT;
+$proxyauth = $RandProxy->PROXY_USERPASS;
 //============================================================
 $UA = getUA();
 $iPhone = Array('iPhone10,4','iPhone10,5','iPhone10,6','iPhone11,3','iPhone11,4','iPhone11,8','iPhone12,1','iPhone12,3','iPhone12,5','iPad11,2','iPad11,3','iPad11,4');
@@ -57,13 +62,15 @@ return json_encode($x, true);
 $JSONData = json_decode(json_decode(ApplovinJSON()));
 if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = 'https://prod-a.applovin.com/imp?clcode='.$JSONData->clcode.'';}else{$UrlImpression = '/err';}
-$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err');
+$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err');
 $UrlClick = $ClickRand[array_rand($ClickRand)];
 for ($i = 1; $i <= 1; $i++) {
-$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
-$input = json_decode($ApplovinSDK);
-$proxy = $input->PROXY_HOSTPORT;
-$proxyauth = $input->PROXY_USERPASS;
+$Luminati = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json');
+$arr = json_decode($Luminati, true);
+$RandServer = $arr[rand(0,count($arr)-1)];
+$RandProxy = json_decode(json_encode($RandServer));
+$proxy = $RandProxy->PROXY_HOSTPORT;
+$proxyauth = $RandProxy->PROXY_USERPASS;
 $UA = getUA();
 $url = $UrlImpression;
 $ch = curl_init();
