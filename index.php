@@ -77,5 +77,5 @@ $x = curl_exec($ch);
 echo $x;}
 ?>
 <script type="text/javascript">
-window.open('<?php echo $Click; ?>');
+window.open('<?php echo $UrlClick; ?>');
 </script>
