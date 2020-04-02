@@ -57,7 +57,7 @@ return json_encode($x, true);
 $JSONData = json_decode(json_decode(ApplovinJSON()));
 if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = 'https://prod-a.applovin.com/imp?clcode='.$JSONData->clcode.'';}else{$UrlImpression = '/err';}
-$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err','/err','/err');
+$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err');
 $UrlClick = $ClickRand[array_rand($ClickRand)];
 for ($i = 1; $i <= 1; $i++) {
 $ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
