@@ -26,7 +26,7 @@ $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_3_1 like Mac OS X) AppleWebKit/605.
 $UARand = array_rand($userAgent);return $userAgent[$UARand];}
 ?>
 <?php
-function Applovin()
+function ApplovinJSON()
 {
 //Applovin SDK
 $ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
@@ -41,8 +41,8 @@ $versi = Array('13.3.1');
 if(preg_match("/iPhone/", $UA)) {
 $model = $iPhone[array_rand($iPhone)];}else{
 $model = $iPad[array_rand($iPad)];}
-$urlrandom = Array('https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&accept=video&gender=f&accept=video','https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&accept=video&gender=f&accept=video&sdk_version='.$input->SDV.'');
-$url = $urlrandom[array_rand($urlrandom)];
+$urlRand = Array('https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&accept=video&gender=f&accept=video','https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&accept=video&gender=f&accept=video&sdk_version='.$input->SDV.'');
+$url = $urlRand[array_rand($urlRand)];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_USERAGENT, $UA);
 curl_setopt($ch, CURLOPT_URL,$url);
@@ -54,10 +54,27 @@ $x = curl_exec($ch);
 curl_close($ch);
 return json_encode($x, true);
 }
-$JSONData = json_decode(json_decode(Applovin()));
-echo $JSONData->html;
-$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err','/err');
-$Click = $ClickRand[array_rand($ClickRand)];
+$JSONData = json_decode(json_decode(ApplovinJSON()));
+if(preg_match("/!/", $JSONData->clcode)) {
+$UrlImpression = 'https://prod-a.applovin.com/imp?clcode='.$JSONData->clcode.'';}else{$UrlImpression = '/err';}
+$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err','/err','/err','/err','/err','/err');
+$UrlClick = $ClickRand[array_rand($ClickRand)];
+for ($i = 1; $i <= 1; $i++) {
+$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
+$input = json_decode($ApplovinSDK);
+$proxy = $input->PROXY_HOSTPORT;
+$proxyauth = $input->PROXY_USERPASS;
+$UA = getUA();
+$url = $UrlImpression;
+$ch = curl_init();
+curl_setopt($ch, CURLOPT_USERAGENT, $UA);
+curl_setopt($ch, CURLOPT_URL,$url);
+curl_setopt($ch, CURLOPT_PROXY, $proxy);
+curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
+curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+$x = curl_exec($ch);
+echo $x;}
 ?>
 <script type="text/javascript">
 window.open('<?php echo $Click; ?>');
