@@ -1,8 +1,6 @@
 { 
-"SDK": "d4-vJt5F-8CnhJfMp6q7Cd4A5cuIXoSO60_owv0gBTmJzP7qdyB1Z8Ceyy5bxLD2HE7Zb5w3IDTMCWoHeBlgFc",
-"PKG": "com.edjing.edjingdjturntable",
-"ZND": "e426eadfc1c1bcb7", 
-"SDV": "6.11.6",
-"PROXY_HOSTPORT": "zproxy.lum-superproxy.io:22225",
-"PROXY_USERPASS": "lum-customer-hl_88c46444-zone-static:s88i5wycn5ge"
+"SDK": "",
+"PKG": "",
+"ZND": "", 
+"SDV": "6.11.6"
 }
