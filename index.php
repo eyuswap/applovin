@@ -72,7 +72,7 @@ return json_encode($x, true);
 }
 $JSONData = json_decode(json_decode(ApplovinJSON()));
 ?>
-<?
+<?php
 if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = 'https://prod-a.applovin.com/imp?clcode='.$JSONData->clcode.'';}else{$UrlImpression = '/err';}
 for ($i = 1; $i <= 1; $i++) {
