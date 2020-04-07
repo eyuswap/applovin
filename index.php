@@ -56,7 +56,7 @@ $h = [
     'Content-Type: application/json; charset=utf-8',
     'Cache-Control: no-cache',
 	'X-Requested-With: '.$input->PKG.'',
-	'Host: prod-a.applovin.com',
+	'Host: a.applovin.com',
     'User-Agent: '.getUA().'',
      ];
 $ch = curl_init();
