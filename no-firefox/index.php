@@ -134,7 +134,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-$ClickRand = Array(''.$JSONData->click_tracking_url.'');
+$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err');
 $UrlClick = $ClickRand[array_rand($ClickRand)];
 //Applovin SDK
 $ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
