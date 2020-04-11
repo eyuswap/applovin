@@ -22,13 +22,11 @@ $UARand = array_rand($userAgent);return $userAgent[$UARand];}
 <?php
 $ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
 $input = json_decode($ApplovinSDK);
-echo "\033[33;5m=========Script By Eyus Project©2020===========\033[0m\n";
-echo "\033[33;5m=SDK : \033[0m" . "\033[1;31m" . $input->SDK . "\033[0m\n";
-echo "\033[33;5m=PACKAGE NAME : \033[0m" . "\033[1;31m" . $input->PKG. "\033[0m\n";
-echo "\033[33;5m=ZONE ID : \033[0m" . "\033[1;31m" . $input->ZND . "\033[0m\n";
-echo "\033[33;5m=SDK VERSION : \033[0m" . "\033[1;31m" . $input->SDV . "\033[0m\n";
-echo "\033[33;5m=========Script By Eyus Project©2020===========\033[0m\n";
-sleep(30);
+echo "\033[44;5mSDK:\033[0m " . "\033[41m" . $input->SDK . "\033[0m\n";
+echo "\033[44;5mPKG:\033[0m " . "\033[41m" . $input->PKG. "\033[0m\n";
+echo "\033[44;5mZND:\033[0m " . "\033[41m" . $input->ZND . "\033[0m\n";
+echo "\033[44;5mSDV:\033[0m " . "\033[41m" . $input->SDV . "\033[0m\n\n";
+sleep(15);
 for ($i = 0; $i <= 999999; $i++) {
 //Applovin SDK
 $ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
@@ -45,6 +43,8 @@ $IPFuck = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/
 $arr = json_decode($IPFuck, true);
 $RandIPFuck = $arr[rand(0,count($arr)-1)];
 $RandIP = json_decode(json_encode($RandIPFuck));
+$IPJson = file_get_contents("http://ip-api.com/json/$RandIP->IP");
+$IPTrack = json_decode($IPJson);
 //============================================================
 $UA = getUA();
 $iPhone = Array("iPhone10,4","iPhone10,5","iPhone10,6","iPhone11,3","iPhone11,4","iPhone11,8","iPhone12,1","iPhone12,3","iPhone12,5","iPad11,2","iPad11,3","iPad11,4");
@@ -55,7 +55,7 @@ $model = $iPad[array_rand($iPad)];}
 $idfa = guidv4(openssl_random_pseudo_bytes(16));
 //============================================================
 $urlRand = array("https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video");
-$url = $urlRand[rand(0,9)];
+$url = $urlRand[rand(0,5)];
 $h = [
     "Accept-Language: en-US,en;q=0.8",
     "Connection: keep-alive",
@@ -155,34 +155,34 @@ curl_close($ch);
 //============================================================
 if (strpos($xImp, 'GIF') !== false) 
 {
-		$text1 = "\033[1;32mApplovin Impression Loaded...\033[0m";
-		echo date('H:i:s ')."\033[41m". $RandIP->IP ."\033[0m" ."\033[44m" . $input->PKG . "\033[0m" . "\033[41m". $model. "\033[0m\n";
-		echo date('H:i:s ') . $text1 . "\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[41m".$RandIP->IP."\033[0m " . "\033[44m".$input->PKG."\033[0m " . "\033[41miPhone10,2\033[0m\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[33;5m==========Script By Eyus Project ©2020============\033[0m\n";
+sleep(1);
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[32mImpression    :\033[0m " . "\033[42mSukses...\033[0m " . "\033[44m".$IPTrack->country."\033[0m "."\033[44m".$IPTrack->countryCode."\033[0m\n";
 }
 else
 {
-		$text2 = "\033[1;31mFailed Load Impression...\033[0m";
-		echo date('H:i:s ')."\033[41m". $RandIP->IP ."\033[0m" ."\033[44m" . $input->PKG . "\033[0m" . "\033[41m". $model. "\033[0m\n";
-		echo date('H:i:s ') . $text2 . "\n";		
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[41m".$RandIP->IP."\033[0m " . "\033[44m".$input->PKG."\033[0m " . "\033[41miPhone10,2\033[0m\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[33;5m==========Script By Eyus Project ©2020============\033[0m\n";
+sleep(1);
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[32mImpression    :\033[0m " . "\033[41mGagal....\033[0m " . "\033[44m".$IPTrack->country."\033[0m "."\033[44m".$IPTrack->countryCode."\033[0m\n";
 }
 sleep(1);
 if (empty($xVid)) 
 {
-		$text1 = "\033[1;32mApplovin Videos Loaded...\033[0m";
-		echo date('H:i:s ') . $text1 . "\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[32mVideos        :\033[0m " . "\033[42mSukses...\033[0m " . "\033[46m".$IPTrack->country."\033[0m "."\033[46m".$IPTrack->countryCode."\033[0m\n";
 }
-sleep(2);
+sleep(1);
 if (strpos($xClick, '<html>') !== false) 
 {
-		$text1 = "\033[1;32mAds Has Has Been Clicked...\033[0m";
-		echo date('H:i:s ') . $text1 . "\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[32mClick         :\033[0m " . "\033[42mSukses...\033[0m " . "\033[45m".$IPTrack->country."\033[0m "."\033[45m".$IPTrack->countryCode."\033[0m\n";
 }
 else
 {
-		$text2 = "\033[1;31mFailed Clicked...\033[0m";
-		echo date('H:i:s ') . $text2 . "\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[32mClick         :\033[0m " . "\033[41mGagal....\033[0m " . "\033[45m".$IPTrack->country."\033[0m "."\033[45m".$IPTrack->countryCode."\033[0m\n";
 }
+sleep(1);
 $i++;
-		$done = "\033[33;5m=========Script By Eyus Project©2020===========\033[0m";
-		echo date('H:i:s ') . $done . "\n";
+echo "\033[1;36m". date('H:i:s ')."\033[0m"."\033[33;5m==========Script By Eyus Project ©2020============\033[0m\n";
+sleep(1);
 }
