@@ -104,7 +104,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xImp = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/!/", $JSONData->clcode)) {
+if(preg_match("/(2!|7!|3!)/i", $JSONData->clcode)) {
 $UrlVideos = "https://prod-a.applovin.com/vid?clcode=$JSONData->clcode&event=end";}else{$UrlVideos = "/err";}
 $urlVid = $UrlVideos;
 $h = [
@@ -129,9 +129,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-$ClickRand = Array("$JSONData->click_tracking_url","$urlImp","/err");
-$UrlClick = $ClickRand[array_rand($ClickRand)];
-$urlClickAds = $UrlClick;
+if(preg_match("/(2!|7!|3!)/i", $JSONData->clcode)) {
+$UrlClick = "$JSONData->click_tracking_url";}else{$UrlClick = "$urlImp";}
 $h = [
     "Accept-Language: en-US,en;q=0.8",
     "Connection: keep-alive",
@@ -146,7 +145,7 @@ $h = [
      ];
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_HTTPHEADER, $h);
-curl_setopt($ch, CURLOPT_URL,$urlClickAds);
+curl_setopt($ch, CURLOPT_URL,$UrlClick);
 //curl_setopt($ch, CURLOPT_PROXY, $proxy);
 //curl_setopt($ch, CURLOPT_PROXYUSERPWD, $proxyauth);
 curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
