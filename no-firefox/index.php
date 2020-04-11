@@ -1,4 +1,5 @@
 <?php
+error_reporting(E_ALL ^ (E_NOTICE | E_WARNING)); 
 function guidv4($data)
 {assert(strlen($data) == 16);
 $data[6] = chr(ord($data[6]) & 0x0f | 0x40);
@@ -19,8 +20,16 @@ $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_3_1 like Mac OS X) AppleWebKit/605.
 $UARand = array_rand($userAgent);return $userAgent[$UARand];}
 ?>
 <?php
-function ApplovinJSON()
-{
+$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
+$input = json_decode($ApplovinSDK);
+echo "\033[33;5m=======Script By Eyus Project©2020========\033[0m\n";
+echo "\033[33;5m=SDK : \033[0m" . "\033[1;31m" . $input->SDK . "\033[0m\n";
+echo "\033[33;5m=PACKAGE NAME : \033[0m" . "\033[1;31m" . $input->PKG. "\033[0m\n";
+echo "\033[33;5m=ZONE ID : \033[0m" . "\033[1;31m" . $input->ZND . "\033[0m\n";
+echo "\033[33;5m=SDK VERSION : \033[0m" . "\033[1;31m" . $input->SDV . "\033[0m\n";
+echo "\033[33;5m=======Script By Eyus Project©2020========\033[0m\n";
+sleep(30);
+for ($i = 0; $i <= 999999; $i++) {
 //Applovin SDK
 $ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
 $input = json_decode($ApplovinSDK);
@@ -40,12 +49,13 @@ $RandIP = json_decode(json_encode($RandIPFuck));
 $UA = getUA();
 $iPhone = Array('iPhone10,4','iPhone10,5','iPhone10,6','iPhone11,3','iPhone11,4','iPhone11,8','iPhone12,1','iPhone12,3','iPhone12,5','iPad11,2','iPad11,3','iPad11,4');
 $iPad = Array('iPad11,2','iPad11,3','iPad11,4');
-$versi = Array('13.3.1');
 if(preg_match("/iPhone/", $UA)) {
 $model = $iPhone[array_rand($iPhone)];}else{
 $model = $iPad[array_rand($iPad)];}
-$urlRand = Array('https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&ip='.$RandIP->IP.'&accept=video','https://a.applovin.com/ad?sdk_key='.$input->SDK.'&package_name='.$input->PKG.'&format=json&platform=ios&zone_id='.$input->ZND.'&sdk_version='.$input->SDV.'&idfa='.guidv4(openssl_random_pseudo_bytes(16)).'&model='.$model.'&brand=apple&os='.$versi[array_rand($versi)].'&dnt=0&network=wifi&ip='.$RandIP->IP.'&accept=video');
-$url = $urlRand[array_rand($urlRand)];
+$idfa = guidv4(openssl_random_pseudo_bytes(16));
+//============================================================
+$urlRand = array("https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video");
+$url = $urlRand[rand(0,9)];
 $h = [
     'Accept-Language: en-US,en;q=0.8',
     'Connection: keep-alive',
@@ -64,24 +74,10 @@ curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $x = curl_exec($ch);
 curl_close($ch);
-return json_encode($x, true);
-}
-$JSONData = json_decode(json_decode(ApplovinJSON()));
-?>
-<?php
-error_reporting(E_ALL ^ (E_NOTICE | E_WARNING)); 
+$JSONData = json_decode($x);
+//============================================================
 if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = 'https://prod-a.applovin.com/imp?clcode='.$JSONData->clcode.'';}else{$UrlImpression = '/err';}
-//Applovin SDK
-$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
-$input = json_decode($ApplovinSDK);
-// Proxy Config
-$Luminati = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json');
-$arr = json_decode($Luminati, true);
-$RandServer = $arr[rand(0,count($arr)-1)];
-$RandProxy = json_decode(json_encode($RandServer));
-$proxy = $RandProxy->PROXY_HOSTPORT;
-$proxyauth = $RandProxy->PROXY_USERPASS;
 $urlImp = $UrlImpression;
 $h = [
     'Accept-Language: en-US,en;q=0.8',
@@ -104,16 +100,6 @@ curl_close($ch);
 //============================================================
 if(preg_match("/!/", $JSONData->clcode)) {
 $UrlVideos = 'https://prod-a.applovin.com/vid?clcode='.$JSONData->clcode.'&event=end';}else{$UrlVideos = '/err';}
-//Applovin SDK
-$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
-$input = json_decode($ApplovinSDK);
-// Proxy Config
-$Luminati = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json');
-$arr = json_decode($Luminati, true);
-$RandServer = $arr[rand(0,count($arr)-1)];
-$RandProxy = json_decode(json_encode($RandServer));
-$proxy = $RandProxy->PROXY_HOSTPORT;
-$proxyauth = $RandProxy->PROXY_USERPASS;
 $urlVid = $UrlVideos;
 $h = [
     'Accept-Language: en-US,en;q=0.8',
@@ -134,18 +120,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-$ClickRand = Array(''.$JSONData->click_tracking_url.'','/err','/err');
+$ClickRand = Array(''.$JSONData->click_tracking_url.'',''.$urlImp.'','/err');
 $UrlClick = $ClickRand[array_rand($ClickRand)];
-//Applovin SDK
-$ApplovinSDK = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json');
-$input = json_decode($ApplovinSDK);
-// Proxy Config
-$Luminati = file_get_contents('https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json');
-$arr = json_decode($Luminati, true);
-$RandServer = $arr[rand(0,count($arr)-1)];
-$RandProxy = json_decode(json_encode($RandServer));
-$proxy = $RandProxy->PROXY_HOSTPORT;
-$proxyauth = $RandProxy->PROXY_USERPASS;
 $urlClickAds = $UrlClick;
 $h = [
     'Accept-Language: en-US,en;q=0.8',
@@ -166,36 +142,36 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xClick = curl_exec($ch);
 curl_close($ch);
 //============================================================
-for ($i = 0; $i <= 1; $i++) {
 if (strpos($xImp, 'GIF') !== false) 
 {
 		$text1 = "\033[1;32mApplovin Impression Loaded...\033[0m";
-		echo date('d-m-Y H:i:s ') . $text1 . "\n";
+		echo date('H:i:s ')."\033[41m". $RandIP->IP ."\033[0m" ."\033[44m" . $input->PKG . "\033[0m" . "\033[41m". $model. "\033[0m\n";
+		echo date('H:i:s ') . $text1 . "\n";
 }
 else
 {
 		$text2 = "\033[1;31mFailed Load Impression...\033[0m";
-		echo date('d-m-Y H:i:s ') . $text2 . "\n";		
+		echo date('H:i:s ')."\033[41m". $RandIP->IP ."\033[0m" ."\033[44m" . $input->PKG . "\033[0m" . "\033[41m". $model. "\033[0m\n";
+		echo date('H:i:s ') . $text2 . "\n";		
 }
 sleep(1);
 if (empty($xVid)) 
 {
 		$text1 = "\033[1;32mApplovin Videos Loaded...\033[0m";
-		echo date('d-m-Y H:i:s ') . $text1 . "\n";
+		echo date('H:i:s ') . $text1 . "\n";
 }
 sleep(2);
 if (strpos($xClick, '<html>') !== false) 
 {
 		$text1 = "\033[1;32mAds Has Has Been Clicked...\033[0m";
-		echo date('d-m-Y H:i:s ') . $text1 . "\n";
+		echo date('H:i:s ') . $text1 . "\n";
 }
 else
 {
 		$text2 = "\033[1;31mFailed Clicked...\033[0m";
-		echo date('d-m-Y H:i:s ') . $text2 . "\n";
+		echo date('H:i:s ') . $text2 . "\n";
 }
 $i++;
-		$done = "\033[44mSelesai===================================\033[0m";
-		echo date('d-m-Y H:i:s ') . $done . "\n";
+		$done = "\033[33;5m=======Script By Eyus Project©2020========\033[0m";
+		echo date('H:i:s ') . $done . "\n";
 }
-sleep(2);
