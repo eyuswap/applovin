@@ -83,7 +83,7 @@ $x = curl_exec($ch);
 curl_close($ch);
 $JSONData = json_decode($x);
 //============================================================
-if(preg_match("/(5!|7!|3!|2!|9!|0!)/i", $JSONData->clcode)) {
+if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = "https://prod-a.applovin.com/imp?clcode=$JSONData->clcode";}else{$UrlImpression = "/err";}
 $urlImp = $UrlImpression;
 $h = [
@@ -108,7 +108,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xImp = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/(5!|7!)/i", $JSONData->clcode)) {
+if(preg_match("/(5!|7!|3!)/i", $JSONData->clcode)) {
 $UrlVideos = "https://prod-a.applovin.com/vid?clcode=$JSONData->clcode&event=end";}else{$UrlVideos = "/err";}
 $urlVid = $UrlVideos;
 $h = [
@@ -133,7 +133,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/(5!|7!)/i", $JSONData->clcode)) {
+if(preg_match("/(5!|7!|3!)/i", $JSONData->clcode)) {
 $UrlClick = "$JSONData->click_tracking_url";}else{$UrlClick = "/err";}
 $h = [
     "Accept-Language: en-US,en;q=0.8",
