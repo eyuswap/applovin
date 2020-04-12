@@ -108,7 +108,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xImp = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/(5!|7!|3!)/i", $JSONData->clcode)) {
+if(preg_match("/(5!|7!|3!|6!|8!|0!)/i", $JSONData->clcode)) {
 $UrlVideos = "https://prod-a.applovin.com/vid?clcode=$JSONData->clcode&event=end";}else{$UrlVideos = "/err";}
 $urlVid = $UrlVideos;
 $h = [
