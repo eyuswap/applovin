@@ -54,8 +54,8 @@ $model = $iPhone[array_rand($iPhone)];}else{
 $model = $iPad[array_rand($iPad)];}
 $idfa = guidv4(openssl_random_pseudo_bytes(16));
 //============================================================
-$urlRand = array("https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video");
-$url = $urlRand[rand(0,5)];
+$urlRand = array("https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video","https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.3.1&dnt=0&network=wifi&ip=$RandIP->IP&accept=video");
+$url = $urlRand[array_rand($urlRand)];
 $h = [
     "Accept-Language: en-US,en;q=0.8",
     "Connection: keep-alive",
@@ -79,7 +79,7 @@ $x = curl_exec($ch);
 curl_close($ch);
 $JSONData = json_decode($x);
 //============================================================
-if(preg_match("/!/", $JSONData->clcode)) {
+if(preg_match("/(5!|7!|3!|2!|9!|0!)/i", $JSONData->clcode)) {
 $UrlImpression = "https://prod-a.applovin.com/imp?clcode=$JSONData->clcode";}else{$UrlImpression = "/err";}
 $urlImp = $UrlImpression;
 $h = [
@@ -104,7 +104,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xImp = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/(2!|7!|3!)/i", $JSONData->clcode)) {
+if(preg_match("/(5!|7!)/i", $JSONData->clcode)) {
 $UrlVideos = "https://prod-a.applovin.com/vid?clcode=$JSONData->clcode&event=end";}else{$UrlVideos = "/err";}
 $urlVid = $UrlVideos;
 $h = [
@@ -129,8 +129,8 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/(2!|7!|3!)/i", $JSONData->clcode)) {
-$UrlClick = "$JSONData->click_tracking_url";}else{$UrlClick = "$urlImp";}
+if(preg_match("/(5!|7!)/i", $JSONData->clcode)) {
+$UrlClick = "$JSONData->click_tracking_url";}else{$UrlClick = "/err";}
 $h = [
     "Accept-Language: en-US,en;q=0.8",
     "Connection: keep-alive",
