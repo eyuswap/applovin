@@ -27,7 +27,7 @@ echo "\033[1;31mNote    :\033[0m "; usleep(200000); echo "\033[1;30mS"; usleep(1
 }
 $stdin = fopen('php://stdin', 'r');
 $response = fgetc($stdin);
-if ($response != 'YA') {
+if ($response != 'Y') {
    echo "\033[1;31mDibatalkan.\033[0m\n";
    exit;
 }
