@@ -1,2 +1,2 @@
 #!/bin/bash
-echo "YA" | php index.php
+echo "yes" | php index.php
