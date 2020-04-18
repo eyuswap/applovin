@@ -18,16 +18,12 @@ $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.
 $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1";
 $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1";
 $UARand = array_rand($userAgent);return $userAgent[$UARand];}
-function DataImp() {
-$interval = 60*60;
-srand(floor(time() / $interval)); 
-$arrImp = array("!","5!","(1!|0!)","(1!|0!|9!)","(1!|0!|2!|8!)","(1!|0!|2!|8!|3!)","(1!|0!|2!|8!|3!|7!)","(1!|0!|2!|8!|3!|4!)","(1!|0!|2!|8!|3!|4!|6!)","(1!|0!|2!|8!|3!|4!|6!|5!)");
-return $arrImp[array_rand($arrImp)];}
 function DataClick() {
 $interval = 60*60;
 srand(floor(time() / $interval)); 
 $arrClick = array("(1&p|2&p|3&p)","(1&p|2&p|3&p|4&p)","(1&p|2&p|3&p|4&p|5&p)","(1&p|2&p|3&p|4&p|5&p|6&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p|b&p)","(a&p|2&p|3&p)","(b&p|2&p|3&p|4&p)","(c&p|2&p|3&p|4&p|5&p)","(d&p|2&p|3&p|4&p|5&p|6&p)","(e&p|2&p|3&p|4&p|5&p|6&p|7&p)","(f&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(a&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(b&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p)","(c&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p&1)","(a&p|b&p|c&p|d&p|e&p|f&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p|7&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p|7&p|6&p)");
 return $arrClick[array_rand($arrClick)];}
+$DataRandClick = DataClick();
 ?>
 <?php
 $ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
@@ -105,8 +101,7 @@ $x = curl_exec($ch);
 curl_close($ch);
 $JSONData = json_decode($x);
 //============================================================
-$DataRandImp = DataImp();
-if(preg_match("/$DataRandImp/", $JSONData->clcode)) {
+if(preg_match("/!/", $JSONData->clcode)) {
 $UrlImpression = "https://prod-a.applovin.com/imp?clcode=$JSONData->clcode";}else{$UrlImpression = "";}
 $urlImp = $UrlImpression;
 $h = [
@@ -131,7 +126,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xImp = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if(preg_match("/$DataRandImp/", $JSONData->clcode)) {
+if(preg_match("/!/", $JSONData->clcode)) {
 $UrlVideos = "https://prod-a.applovin.com/vid?clcode=$JSONData->clcode&event=end";}else{$UrlVideos = "";}
 $urlVid = $UrlVideos;
 $h = [
@@ -156,7 +151,6 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xVid = curl_exec($ch);
 curl_close($ch);
 //============================================================
-$DataRandClick = DataClick();
 if(preg_match("/$DataRandClick/", $JSONData->click_tracking_url)) {
 $UrlClick = "$JSONData->click_tracking_url";}else{$UrlClick = "";}
 $h = [
