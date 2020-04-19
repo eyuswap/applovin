@@ -30,6 +30,7 @@ $x = array('Applovin','');
 $y1 = $x[array_rand($x)]; $y2 = $x[array_rand($x)]; $y3 = $x[array_rand($x)]; $y4 = $x[array_rand($x)]; $y5 = $x[array_rand($x)];
 ?>
 <?php
+$ImpSuccess = 0; $ClickSuccess = 0; $VideosSuccess = 0; $ImpError = 0; $ClickError = 0; $VideosError = 0;
 $ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
 $input = json_decode($ApplovinSDK);
 for ($i = 1; $i > 0; --$i) {
@@ -185,28 +186,37 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
 $xClick = curl_exec($ch);
 curl_close($ch);
 //============================================================
-if (strpos($xImp, 'GIF') !== false) 
+if(preg_match("(!|GIF)", "($xImp|$JSONData->clcode)")) 
 {
+$ImpSuccess++;
 echo "\033[1;30mDATE/TIME     : "; usleep(200000); echo date('d-m-Y - H:i:s')."\n"; usleep(200000); echo "IP ADDRESS    : "; usleep(200000); echo "$RandIP->IP - $IPTrack->country\n"; usleep(200000); echo "\033[1;31mCLCODE        :\033[0m "; usleep(200000); echo "\033[45mD"; usleep(30000); echo "i"; usleep(30000); echo "t"; usleep(30000); echo "e"; usleep(30000); echo "m"; usleep(30000); echo "u"; usleep(30000); echo "k"; usleep(30000); echo "a"; usleep(30000); echo "n...\033[0m\n"; usleep(30000);echo "\033[1;31mIMPRESSION    :\033[0m "; usleep(200000); echo "\033[42mS"; usleep(30000); echo "u"; usleep(30000); echo "k"; usleep(30000); echo "s"; usleep(30000); echo "e"; usleep(30000); echo "s"; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "I"; usleep(30000); echo "m"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "e"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
 else
 {
+$ImpError++;
 echo "\033[1;30mDATE/TIME     : "; usleep(200000); echo date('d-m-Y - H:i:s')."\n"; usleep(200000); echo "IP ADDRESS    : "; usleep(200000); echo "$RandIP->IP - $IPTrack->country\n"; usleep(200000); echo "\033[1;31mCLCODE        :\033[0m "; usleep(200000); echo "\033[46mT"; usleep(30000); echo "i"; usleep(30000); echo "d"; usleep(30000); echo "a"; usleep(30000); echo "k"; usleep(30000); echo " "; usleep(30000); echo "D"; usleep(30000); echo "i"; usleep(30000); echo "t"; usleep(30000); echo "e"; usleep(30000); echo "m"; usleep(30000); echo "u"; usleep(30000); echo "k"; usleep(30000); echo "a"; usleep(30000); echo "n...\033[0m\n"; usleep(30000);echo "\033[1;31mIMPRESSION    :\033[0m "; usleep(200000); echo "\033[41mG"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "a"; usleep(30000); echo "l"; usleep(30000); echo " "; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "I"; usleep(30000); echo "m"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "e"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
-if(preg_match("/!/", "($xVid|$JSONData->clcode)")) {
+if(preg_match("/!/", "($xVid|$JSONData->clcode)")) 
+{
+$VideosSuccess++;
 echo "\033[1;31mVIDEOS        :\033[0m "; usleep(200000); echo "\033[42mS"; usleep(30000); echo "u"; usleep(30000); echo "k"; usleep(30000); echo "s"; usleep(30000); echo "e"; usleep(30000); echo "s"; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "V"; usleep(30000); echo "i"; usleep(30000); echo "d"; usleep(30000); echo "e"; usleep(30000); echo "o"; usleep(30000); echo "s"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
 else
 {
+$VideosError++;
 echo "\033[1;31mVIDEOS        :\033[0m "; usleep(200000); echo "\033[41mG"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "a"; usleep(30000); echo "l"; usleep(30000); echo " "; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "V"; usleep(30000); echo "i"; usleep(30000); echo "d"; usleep(30000); echo "e"; usleep(30000); echo "o"; usleep(30000); echo "s"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
-if(preg_match("/$DataRandClick/", "($xClick|$JSONData->click_tracking_url)")) {
+if(preg_match("/$DataRandClick/", "($xClick|$JSONData->click_tracking_url)")) 
+{
+$ClickSuccess++;
 echo "\033[1;31mCLICK         :\033[0m "; usleep(200000); echo "\033[42mS"; usleep(30000); echo "u"; usleep(30000); echo "k"; usleep(30000); echo "s"; usleep(30000); echo "e"; usleep(30000); echo "s"; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mH"; usleep(30000); echo "a"; usleep(30000); echo "s"; usleep(30000); echo " "; usleep(30000); echo "B"; usleep(30000); echo "e"; usleep(30000); echo "e"; usleep(30000); echo "n"; usleep(30000); echo " "; usleep(30000); echo "C"; usleep(30000); echo "l"; usleep(30000); echo "i"; usleep(30000); echo "c"; usleep(30000); echo "k"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
 else
 {
+$ClickError++;
 echo "\033[1;31mCLICK         :\033[0m "; usleep(200000); echo "\033[41mG"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "a"; usleep(30000); echo "l"; usleep(30000); echo " "; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "S"; usleep(30000); echo "e"; usleep(30000); echo "r"; usleep(30000); echo "v"; usleep(30000); echo "e"; usleep(30000); echo "r"; usleep(30000); echo "s"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
 $i++;
+echo "\033[1;30mTOTAL         :\033[0m "; usleep(200000); echo "I"; usleep(30000); echo "m"; usleep(30000); echo "p"; usleep(30000); echo " "; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ImpSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "C"; usleep(30000); echo "l"; usleep(30000); echo "i"; usleep(30000); echo "c"; usleep(30000); echo "k"; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ClickSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "V"; usleep(30000); echo "i"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$VideosSuccess\033[0m"; usleep(30000); echo "\n";  usleep(30000);
 echo "\033[33;5m="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "S"; usleep(30000); echo "c"; usleep(30000); echo "r"; usleep(30000); echo "i"; usleep(30000); echo "p"; usleep(30000); echo "t"; usleep(30000); echo " "; usleep(30000); echo "B"; usleep(30000); echo "y"; usleep(30000); echo " "; usleep(30000); echo "E"; usleep(30000); echo "y"; usleep(30000); echo "u"; usleep(30000); echo "s"; usleep(30000); echo " "; usleep(30000); echo "P"; usleep(30000); echo "r"; usleep(30000); echo "o"; usleep(30000); echo "j"; usleep(30000); echo "e"; usleep(30000); echo "c"; usleep(30000); echo "t"; usleep(30000); echo " "; usleep(30000); echo "©"; usleep(30000); echo "2"; usleep(30000); echo "0"; usleep(30000); echo "2"; usleep(30000); echo "0"; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "=\033[0m\n"; usleep(30000);
 }
