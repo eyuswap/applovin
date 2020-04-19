@@ -19,14 +19,14 @@ $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.
 $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1";
 $UARand = array_rand($userAgent);return $userAgent[$UARand];}
 function DataClick() {
-$time = 60*60;
+$time = 60*30;
 srand(floor(time() / $time)); 
-$arrClick = array("(1&p|2&p|3&p)","(1&p|2&p|3&p|4&p)","(1&p|2&p|3&p|4&p|5&p)","(1&p|2&p|3&p|4&p|5&p|6&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p|b&p)","(a&p|2&p|3&p)","(b&p|2&p|3&p|4&p)","(c&p|2&p|3&p|4&p|5&p)","(d&p|2&p|3&p|4&p|5&p|6&p)","(e&p|2&p|3&p|4&p|5&p|6&p|7&p)","(f&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(a&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(b&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p)","(c&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p&1)","(a&p|b&p|c&p|d&p|e&p|f&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p|7&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p|8&p|7&p|6&p)");
+$arrClick = array("(1&p|2&p|3&p)","(1&p|2&p|3&p|4&p)","(1&p|2&p|3&p|4&p|5&p)","(1&p|2&p|3&p|4&p|5&p|6&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p|b&p)","(a&p|2&p|3&p)","(b&p|2&p|3&p|4&p)","(c&p|2&p|3&p|4&p|5&p)","(d&p|2&p|3&p|4&p|5&p|6&p)","(e&p|2&p|3&p|4&p|5&p|6&p|7&p)","(f&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(a&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(b&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p)","(c&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p&1)","(a&p|b&p|c&p|d&p|e&p|f&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p)","(a&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p|9&p)","(a&p|b&p|c&p|d&p|e&p|1&p|2&p|3&p|9&p|8&p)","(b&p|c&p|d&p|e&p|f&p|1&p|3&p|9&p|8&p|7&p)","(a&p|b&p|d&p|e&p|f&p|1&p|2&p|8&p|7&p|6&p)","(a&p|d&p|f&p|1&p)","(a&p|2&p|f&p|4&p|c&p)","(1&p|7&p|3&p)","(1&p|2&p|3&p|d&p|)");
 return $arrClick[array_rand($arrClick)];}
 $DataRandClick = DataClick();
-$time = 60*60;
+$time = 60*45;
 srand(floor(time() / $time)); 
-$x = array('Applovin','');
+$x = array("EyusProject","");
 $y1 = $x[array_rand($x)]; $y2 = $x[array_rand($x)]; $y3 = $x[array_rand($x)]; $y4 = $x[array_rand($x)]; $y5 = $x[array_rand($x)];
 ?>
 <?php
@@ -82,11 +82,11 @@ $model = $iPad[array_rand($iPad)];}
 $idfa = guidv4(openssl_random_pseudo_bytes(16));
 //============================================================
 $ApplovinUrl = "https://a.applovin.com/ad?sdk_key=$input->SDK&package_name=$input->PKG&format=json&platform=ios&zone_id=$input->ZND&sdk_version=$input->SDV&idfa=$idfa&model=$model&brand=apple&os=13.4.1&dnt=0&network=mobile&ip=$RandIP->IP&accept=video";
-if(preg_match("/Applovin/", $y1)) {$url1 = "$ApplovinUrl";}else{$url1 = "";}
-if(preg_match("/Applovin/", $y2)) {$url2 = "$ApplovinUrl";}else{$url2 = "";}
-if(preg_match("/Applovin/", $y3)) {$url3 = "$ApplovinUrl";}else{$url3 = "";}
-if(preg_match("/Applovin/", $y4)) {$url4 = "$ApplovinUrl";}else{$url4 = "";}
-if(preg_match("/Applovin/", $y5)) {$url5 = "$ApplovinUrl";}else{$url5 = "";}
+if(preg_match("/EyusProject/", $y1)) {$url1 = "$ApplovinUrl";}else{$url1 = "";}
+if(preg_match("/EyusProject/", $y2)) {$url2 = "$ApplovinUrl";}else{$url2 = "";}
+if(preg_match("/EyusProject/", $y3)) {$url3 = "$ApplovinUrl";}else{$url3 = "";}
+if(preg_match("/EyusProject/", $y4)) {$url4 = "$ApplovinUrl";}else{$url4 = "";}
+if(preg_match("/EyusProject/", $y5)) {$url5 = "$ApplovinUrl";}else{$url5 = "";}
 $urlRand = array("$url1","$url2","$url3","$url4","$url5");
 $url = $urlRand[array_rand($urlRand)];
 $h = [
@@ -217,6 +217,9 @@ $ClickError++;
 echo "\033[1;31mCLICK         :\033[0m "; usleep(200000); echo "\033[41mG"; usleep(30000); echo "a"; usleep(30000); echo "g"; usleep(30000); echo "a"; usleep(30000); echo "l"; usleep(30000); echo " "; usleep(30000); echo "\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[33;5mL"; usleep(30000); echo "o"; usleep(30000); echo "a"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo "S"; usleep(30000); echo "e"; usleep(30000); echo "r"; usleep(30000); echo "v"; usleep(30000); echo "e"; usleep(30000); echo "r"; usleep(30000); echo "s"; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo "."; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " "; usleep(30000); echo " \033[0m"; usleep(30000); echo " \033[44m$IPTrack->countryCode\033[0m\n"; usleep(30000);
 }
 $i++;
-echo "\033[1;30mTOTAL         :\033[0m "; usleep(200000); echo "I"; usleep(30000); echo "m"; usleep(30000); echo "p"; usleep(30000); echo " "; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ImpSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "C"; usleep(30000); echo "l"; usleep(30000); echo "i"; usleep(30000); echo "c"; usleep(30000); echo "k"; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ClickSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "V"; usleep(30000); echo "i"; usleep(30000); echo "d"; usleep(30000); echo " "; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$VideosSuccess\033[0m"; usleep(30000); echo "\n";  usleep(30000);
+$CTR = $ClickSuccess / $ImpSuccess * 100;
+echo "\033[1;30mTOTAL         :\033[0m "; usleep(200000); echo "I"; usleep(30000); echo "m"; usleep(30000); echo "p"; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ImpSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "C"; usleep(30000); echo "l"; usleep(30000); echo "i"; usleep(30000); echo "c"; usleep(30000); echo "k"; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); echo "\033[1;34m$ClickSuccess\033[0m"; usleep(30000); echo " | "; usleep(30000); echo "C"; usleep(30000); echo "T"; usleep(30000); echo "R"; usleep(30000); echo ":"; usleep(30000); echo " "; usleep(30000); 
+echo "\033[1;34m"; echo mb_strimwidth("$CTR", 0, 5,""); usleep(30000); echo "%\033[0m\n";  usleep(30000);
 echo "\033[33;5m="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "S"; usleep(30000); echo "c"; usleep(30000); echo "r"; usleep(30000); echo "i"; usleep(30000); echo "p"; usleep(30000); echo "t"; usleep(30000); echo " "; usleep(30000); echo "B"; usleep(30000); echo "y"; usleep(30000); echo " "; usleep(30000); echo "E"; usleep(30000); echo "y"; usleep(30000); echo "u"; usleep(30000); echo "s"; usleep(30000); echo " "; usleep(30000); echo "P"; usleep(30000); echo "r"; usleep(30000); echo "o"; usleep(30000); echo "j"; usleep(30000); echo "e"; usleep(30000); echo "c"; usleep(30000); echo "t"; usleep(30000); echo " "; usleep(30000); echo "©"; usleep(30000); echo "2"; usleep(30000); echo "0"; usleep(30000); echo "2"; usleep(30000); echo "0"; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "=\033[0m\n"; usleep(30000);
+
 }
