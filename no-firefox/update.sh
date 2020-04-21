@@ -11,7 +11,7 @@ wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/no-firefox/ind
 # UPDATE CRONTAB
 touch /var/spool/cron/root
 /usr/bin/crontab /var/spool/cron/root
-crontab -l | { cat; echo "@reboot /root/run-update.sh && sleep $(((RANDOM%7200)+60)) && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && sleep $(((RANDOM%3720)+600)) && /sbin/shutdown -r now"; } | crontab -
+crontab -l | { cat; echo "@reboot /root/run-update.sh && sleep $(((RANDOM%7200)+60)) && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && screen -d -m -S php /root/php.sh && sleep $(((RANDOM%3720)+600)) && /sbin/shutdown -r now"; } | crontab -
 /etc/init.d/cron restart
 /etc/init.d/cron start
 # SELESAI
