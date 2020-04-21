@@ -91,11 +91,11 @@ if(preg_match("/EyusProject/", $y2)) {$url2 = "$ApplovinUrl";}else{$url2 = "";}
 if(preg_match("/EyusProject/", $y3)) {$url3 = "$ApplovinUrl";}else{$url3 = "";}
 if(preg_match("/EyusProject/", $y4)) {$url4 = "$ApplovinUrl";}else{$url4 = "";}
 if(preg_match("/EyusProject/", $y5)) {$url5 = "$ApplovinUrl";}else{$url5 = "";}
-if(preg_match("/TukangKoding/", $y1)) {$stts1 = "\033[1;32mTRUE\033[0m";}else{$stts1 = "\033[1;31mFALSE\033[0m";}
-if(preg_match("/TukangKoding/", $y2)) {$stts2 = "\033[1;32mTRUE\033[0m";}else{$stts2 = "\033[1;31mFALSE\033[0m";}
-if(preg_match("/TukangKoding/", $y3)) {$stts3 = "\033[1;32mTRUE\033[0m";}else{$stts3 = "\033[1;31mFALSE\033[0m";}
-if(preg_match("/TukangKoding/", $y4)) {$stts4 = "\033[1;32mTRUE\033[0m";}else{$stts4 = "\033[1;31mFALSE\033[0m";}
-if(preg_match("/TukangKoding/", $y5)) {$stts5 = "\033[1;32mTRUE\033[0m";}else{$stts5 = "\033[1;31mFALSE\033[0m";}
+if(preg_match("/TukangKoding/", $y1)) {$stts1 = "\033[1;31mFALSE\033[0m";}else{$stts1 = "\033[1;32mTRUE\033[0m";}
+if(preg_match("/TukangKoding/", $y2)) {$stts2 = "\033[1;31mFALSE\033[0m";}else{$stts2 = "\033[1;32mTRUE\033[0m";}
+if(preg_match("/TukangKoding/", $y3)) {$stts3 = "\033[1;31mFALSE\033[0m";}else{$stts3 = "\033[1;32mTRUE\033[0m";}
+if(preg_match("/TukangKoding/", $y4)) {$stts4 = "\033[1;31mFALSE\033[0m";}else{$stts4 = "\033[1;32mTRUE\033[0m";}
+if(preg_match("/TukangKoding/", $y5)) {$stts5 = "\033[1;31mFALSE\033[0m";}else{$stts5 = "\033[1;32mTRUE\033[0m";}
 $urlRand = array("$url1","$url2","$url3","$url4","$url5");
 $url = $urlRand[array_rand($urlRand)];
 $h = [
