@@ -19,21 +19,11 @@ $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.
 $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1";
 $userAgent[] = "Mozilla/5.0 (iPad; CPU OS 13_4_1 like Mac OS X) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/13.1 Mobile/15E148 Safari/604.1";
 $UARand = array_rand($userAgent);return $userAgent[$UARand];}
-function DataClick() {
-$time = 60*60;
-srand(floor(time() / $time)); 
-$arrClick = array("(1&p|2&p|3&p)","(1&p|2&p|3&p|4&p)","(1&p|2&p|3&p|4&p|5&p)","(1&p|2&p|3&p|4&p|5&p|6&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p|b&p)","(a&p|2&p|3&p)","(b&p|2&p|3&p|4&p)","(c&p|2&p|3&p|4&p|5&p)","(d&p|2&p|3&p|4&p|5&p|6&p)","(e&p|2&p|3&p|4&p|5&p|6&p|7&p)","(f&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(a&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(b&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p)","(c&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p&1)","(a&p|b&p|c&p|d&p|e&p|f&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p)","(a&p|b&p|c&p|d&p|f&p|1&p|2&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p)","(a&p|c&p|d&p|e&p|f&p|1&p|3&p|9&p)","(a&p|b&p|c&p|d&p|e&p|1&p|2&p|3&p|9&p|8&p)","(b&p|c&p|e&p|f&p|1&p|3&p|9&p|8&p|7&p)","(a&p|b&p|d&p|e&p|f&p|1&p|2&p|8&p|7&p|6&p)","(a&p|d&p|f&p|1&p)","(a&p|2&p|f&p|4&p|c&p)","(1&p|7&p|3&p)","(1&p|2&p|3&p|d&p|)");
-return $arrClick[array_rand($arrClick)];}
-$DataRandClick = DataClick();
-$time = 60*60;
-srand(floor(time() / $time)); 
-$x = array("EyusProject","TukangKoding");
-$y1 = $x[array_rand($x)]; $y2 = $x[array_rand($x)]; $y3 = $x[array_rand($x)]; $y4 = $x[array_rand($x)]; $y5 = $x[array_rand($x)];
 ?>
 <?php
-$ImpSuccess = 0; $ClickSuccess = 0; $VideosSuccess = 0; $ImpError = 0; $ClickError = 0; $VideosError = 0;
 $ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
 $input = json_decode($ApplovinSDK);
+$ImpSuccess = 0; $ClickSuccess = 0; $VideosSuccess = 0; $ImpError = 0; $ClickError = 0; $VideosError = 0;
 $iloop = "0";
 for ($i = 0; $i <= 1; $i++) {  
 for ($i=0;$i<=100;$i++){
@@ -59,9 +49,12 @@ exit;
 fclose($stdin);
 echo "\033[0m\033[1;31m\nSTATUS        :\033[0m "; usleep(200000); echo "\033[42mR"; usleep(200000); echo "U"; usleep(200000); echo "N"; usleep(200000); echo "N"; usleep(200000); echo "I"; usleep(200000); echo "N"; usleep(200000); echo "G"; usleep(200000); echo "."; usleep(200000); echo "."; usleep(200000); echo "."; usleep(200000); echo "."; usleep(200000); echo "."; usleep(200000); echo "."; usleep(200000); echo ".\033[0m\n"; sleep(3); system('clear'); echo "\033[33;5m="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "\033[1;31mS\033[0m"; usleep(30000); echo "\033[1;32mc\033[0m"; usleep(30000); echo "\033[1;33mr\033[0m"; usleep(30000); echo "\033[1;34mi\033[0m"; usleep(30000); echo "\033[1;35mp\033[0m"; usleep(30000); echo "\033[1;36mt\033[0m"; usleep(30000); echo " "; usleep(30000);  echo "\033[1;32mB\033[0m"; usleep(30000); echo "\033[1;33my\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[1;35mE\033[0m"; usleep(30000); echo "\033[1;36my\033[0m"; usleep(30000); echo "\033[1;31mu\033[0m"; usleep(30000); echo "\033[1;32ms\033[0m"; usleep(30000); echo " "; usleep(30000);  echo "\033[1;34mP\033[0m"; usleep(30000); echo "\033[1;35mr\033[0m"; usleep(30000); echo "\033[1;36mo\033[0m"; usleep(30000); echo "\033[1;31mj\033[0m"; usleep(30000); echo "\033[1;32me\033[0m"; usleep(30000); echo "\033[1;33mc\033[0m"; usleep(30000); echo "\033[1;34mt\033[0m"; usleep(30000); echo " "; usleep(30000); echo "\033[1;36m©\033[0m"; usleep(30000); echo "\033[1;33m2\033[0m"; usleep(30000); echo "\033[1;34m0\033[0m"; usleep(30000); echo "\033[1;35m2\033[0m"; usleep(30000); echo "\033[1;36m0\033[0m"; usleep(30000); echo "\033[33;5m="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "="; usleep(30000); echo "=\033[0m\n"; usleep(30000);
 for ($i = 0; $i <= 999999; $i++) {
-//Applovin SDK
-$ApplovinSDK = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/applovin_data.json");
-$input = json_decode($ApplovinSDK);
+srand(floor(time() / 3600)); 
+$x = array("EyusProject","TukangKoding");
+$y1 = $x[array_rand($x)]; $y2 = $x[array_rand($x)]; $y3 = $x[array_rand($x)]; $y4 = $x[array_rand($x)]; $y5 = $x[array_rand($x)];
+$arrClick = array("(1&p|2&p|3&p)","(1&p|2&p|3&p|4&p)","(1&p|2&p|3&p|4&p|5&p)","(1&p|2&p|3&p|4&p|5&p|6&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p)","(1&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p|a&p|b&p)","(a&p|2&p|3&p)","(b&p|2&p|3&p|4&p)","(c&p|2&p|3&p|4&p|5&p)","(d&p|2&p|3&p|4&p|5&p|6&p)","(e&p|2&p|3&p|4&p|5&p|6&p|7&p)","(f&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p)","(a&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p)","(b&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p)","(c&p|2&p|3&p|4&p|5&p|6&p|7&p|8&p|9&p|0&p&1)","(a&p|b&p|c&p|d&p|e&p|f&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p)","(a&p|b&p|c&p|d&p|f&p|1&p|2&p)","(a&p|b&p|c&p|d&p|e&p|f&p|1&p|2&p|3&p)","(a&p|c&p|d&p|e&p|f&p|1&p|3&p|9&p)","(a&p|b&p|c&p|d&p|e&p|1&p|2&p|3&p|9&p|8&p)","(b&p|c&p|e&p|f&p|1&p|3&p|9&p|8&p|7&p)","(a&p|b&p|d&p|e&p|f&p|1&p|2&p|8&p|7&p|6&p)","(a&p|d&p|f&p|1&p)","(a&p|2&p|f&p|4&p|c&p)","(1&p|7&p|3&p)","(1&p|2&p|3&p|d&p|)");
+$DataRandClick = $arrClick[array_rand($arrClick)];
+srand(floor(time() / 1)); 
 // Proxy Config
 $Luminati = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/Luminati.json");
 $arr = json_decode($Luminati, true);
