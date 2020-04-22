@@ -63,7 +63,7 @@ $RandProxy = json_decode(json_encode($RandServer));
 $proxy = $RandProxy->PROXY_HOSTPORT;
 $proxyauth = $RandProxy->PROXY_USERPASS;
 // IPFuck Config
-$IPFuck = file_get_contents("https://eyus.co.id/ip/");
+$IPFuck = file_get_contents("https://raw.githubusercontent.com/eyuswap/applovin/master/IPFuck.json");
 $arr = json_decode($IPFuck, true);
 $RandIPFuck = $arr[rand(0,count($arr)-1)];
 $RandIP = json_decode(json_encode($RandIPFuck));
