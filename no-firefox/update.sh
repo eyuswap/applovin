@@ -13,7 +13,7 @@ wget -q https://raw.githubusercontent.com/eyuswap/applovin/master/no-firefox/run
 # UPDATE CRONTAB
 touch /var/spool/cron/root
 /usr/bin/crontab /var/spool/cron/root
-crontab -l | { cat; echo "@reboot /root/run-update.sh && sleep $(((RANDOM%10800)+60)) && echo "$(((RANDOM%18)+1))" | php running.php && sleep $(((RANDOM%3720)+600)) && /sbin/shutdown -r now"; } | crontab -
+crontab -l | { cat; echo "@reboot /root/run-update.sh && sleep $(((RANDOM%10800)+60)) && echo "$(((RANDOM%18)+1))" | php running.php && sleep $(((RANDOM%7800)+600)) && /sbin/shutdown -r now"; } | crontab -
 /etc/init.d/cron restart
 /etc/init.d/cron start
 # SELESAI
